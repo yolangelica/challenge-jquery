@@ -3,6 +3,7 @@ $(document).ready( function printNews(){
     $(".js-back").hide();/*oculta icono flecha en index1 con hide  -- ETAPA1*/
     $('p').append('NUEVAS RECETAS')/*agrega texto nuevas recetas  --ETAPA2*/
     renderHighlightedRecipes(recipesArray);/*LLAMA FUNCION ETAPA 4 */
+    renderActivities(activitiesArray);/*LLAMA FUNCION ETAPA 5*/
 });
 
 
@@ -49,11 +50,21 @@ function renderRecipe(recipe) { //parametro que contiene el array con el que se 
 
 
 
+
+
 /*
-* Función que se encarga de pintar todas las actividades
+* ETAPA5 Función que se encarga de pintar todas las actividades
 */
-function renderActivities(activitiesArray) {
-	console.log('Activities: ', activitiesArray);
+function renderActivities(activitiesArray) {/*recorre el arreglo que le llega como
+parámetro ( activitiesArray ) y por cada uno de los objetos manda a llamar
+a la función renderActivity y pasale el objeto como parámetro.*/
+    //console.log('Activities: ', activitiesArray);
+ for (var i = 0; i < activitiesArray.length; i++) {
+   renderActivity(activitiesArray[i]);
+   if (activitiesArray > 0) {
+     $(".wrapper-message").hide();
+   }
+ }
 }
 
 /*
