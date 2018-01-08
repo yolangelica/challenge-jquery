@@ -1,29 +1,24 @@
-$(document).ready( function(){
-$(".js-back").hide();/* hide oculta  flecha en index.*/
-});
 
-
-/* agrega texto NUEVAS RECETAS  a  parrafo*/
 $(document).ready( function printNews(){
-    $('p').append('NUEVAS RECETAS')
+    $(".js-back").hide();/*oculta icono flecha en index1 con hide   ETAPA1*/
+    $('p').append('NUEVAS RECETAS')/*agrega texto nuevas recetas  ETAPA2*/
 });
-
-
-
-
-//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
-renderHighlightedRecipes(recipesArray);
-
-
 
 
 /*
 * Función que se encarga de pintar TODAS las recetas que tengan 
 * marcado el atributo "highlighted" como TRUE
 */
-function renderHighlightedRecipes(recipesArray) {
-	console.log('Recipes: ', recipesArray);
+function renderHighlightedRecipes(recipesArray) {/*ETAPA 3*/
+	for(var i= 0; i<= recipesArray.length; i++){/*recorre array recetas*/
+		if(recipesArray [i].highlighted == true){/*Verificar en elarreglo si tiene la propiedad highlighted en true.*/
+			renderRecipe(recipesArray[i])/*manda a llamar la función renderRecipe pasándole como parámetro el objeto que cumplió la condición*/
+		}
+	}
 }
+
+/*console.log('Recipes: ', recipesArray);*/
+
 
 /*
 * Función que se encarga de pintar UNA recetas que tenga 
